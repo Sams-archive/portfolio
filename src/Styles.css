@@ -1,0 +1,478 @@
+/* 1. Global Reset & Base Styles */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  background: #fbe9e9;
+  /* Add padding-top so your first section isn't hidden behind the fixed header */
+  padding-top: 80px; 
+}
+
+/* 2. Pinned Header Navigation */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px; /* Consistent height */
+  display: flex;
+  justify-content: space-between; /* Pushes H2 left, Nav right */
+  align-items: center;
+  background-color: #f5ba13;
+  padding: 0 50px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+header h2 {
+  color: #ffffff;
+  font-family: "McLaren", cursive;
+  font-weight: 200;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  align-items: center;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: #3d3434;
+  transform: translateY(-2px);
+}
+
+/* 3. Buttons */
+.contact-btn {
+  padding: 10px 20px;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  background-color: white;
+  color: #f5ba13;
+  font-family: "McLaren", cursive;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.contact-btn:hover {
+  background-color: #3d3434;
+  color: white;
+  transform: scale(1.05);
+}
+
+/* 4. Main Content Sections */
+#about, #skills, #portfolio {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  scroll-margin-top: 80px; /* Offset for fixed header */
+}
+#about {
+  display: flex;          /* This is the magic line that puts divs side-by-side */
+  flex-direction: row;    /* Ensures they stay in a row */
+  align-items: center;    /* Vertically centers the content in both columns */
+  justify-content: space-between; /* Spreads the text and image apart */
+  
+  height: 100vh;
+  padding: 80px 50px;
+  gap: 40px;              /* Adds space between the two divs */
+}
+
+/* Ensure each div takes up roughly half the screen */
+#about > div {
+  flex: 1; 
+}
+
+#about { background-color: #ffffff; }
+#skills { background-color: #f4f4f4; }
+#portfolio { background-color: #ffffff; }
+
+/* 1. Create the two-column layout */
+.about-container {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch; /* Ensures columns are the same height */
+  height: 100vh;
+  padding: 80px 50px;
+  gap: 40px;
+}
+
+/* 2. Style the text column */
+.about-text {
+  flex: 1;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: justify;    
+}
+
+.about-text p {
+  text-align: justify;  /* Justifies the long text block */
+  line-height: 1.6;
+  margin-top: 20px;
+}
+
+/* 3. Style the image column and layering */
+.about-image-column {
+  flex: 1;
+  position: relative;   /* Required to position children absolutely inside */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;     /* Keeps images within the column bounds */
+}
+
+.bg-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;    /* Makes background fill the column */
+  opacity: 0.3;         /* Fades background so clean-me stands out */
+}
+
+.clean-me-image {
+  position: absolute;   /* Sits on top of bg-image */
+  height: 100%;         /* Matches the height of the column */
+  width: auto;          /* Maintains aspect ratio */
+  z-index: 2;           /* Ensures it is in front */
+}
+
+/*SKILLS SECTION STYLES HERE */
+#skills {
+  background-color: #f4f4f4;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 5%;
+  scroll-margin-top: 80px;
+}
+
+.skills-content {
+  width: 100%;
+  max-width: 1100px;
+  text-align: center;
+}
+
+.section-title {
+  font-family: "McLaren", cursive;
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+  color: #333;
+}
+
+.skill-category-group {
+  margin-bottom: 60px;
+  width: 100%;
+}
+
+.category-subtitle {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.4rem;
+  color: #f5ba13;
+  /* Increased margin-bottom to create padding between subtitle and cards */
+  margin-top: 40px;
+  margin-bottom: 40px; 
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: inline-block;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 8px;
+}
+
+/* Changed from Grid to Flexbox for relative card widths */
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;       /* Allows cards to wrap to the next line */
+  justify-content: center; /* Keeps the row centered */
+  gap: 15px;             /* Space between the cards */
+  width: 100%;
+}
+
+.skill-card {
+  background: white;
+  padding: 12px 25px;    /* Vertical and Horizontal padding */
+  border-radius: 50px;   /* Pill-shaped for a modern UI look */
+  display: flex;
+  align-items: center;
+  gap: 10px;             /* Space between icon and text */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  
+  /* These lines ensure the card width fits only the content inside */
+  width: max-content; 
+  flex: 0 1 auto; 
+}
+
+.skill-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid #f5ba13;
+}
+
+.skill-icon {
+  font-size: 1.2rem;
+}
+
+.skill-card p {
+  margin: 0;
+  font-weight: 500;
+  white-space: nowrap; /* Prevents text from breaking into two lines */
+}
+
+/* CHATICON STYLES HERE */
+
+/* 1. Container for the whole floating element */
+.floating-chat {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse; /* Puts label to the left of the icon */
+  cursor: pointer;
+  z-index: 2000; /* Ensures it stays above the header and sections */
+}
+
+/* 2. The Icon Circle */
+.chat-circle {
+  width: 60px;
+  height: 60px;
+  background-color: #f5ba13; /* Matches your header theme */
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.8rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+/* 3. The "Leave a message" label */
+.chat-label {
+  background-color: #333;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 20px;
+  margin-right: 15px;
+  font-size: 0.9rem;
+  font-family: "Montserrat", sans-serif;
+  
+  /* Start hidden and pushed to the right */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(20px);
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+/* 4. Hover Effects */
+.floating-chat:hover .chat-label {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0); /* Slides into view */
+}
+
+.floating-chat:hover .chat-circle {
+  transform: scale(1.1); /* Slight pulse effect */
+}
+
+/* Container for the form overlay */
+.chat-form-container {
+  position: fixed;
+  bottom: 100px; /* Sits above the chat circle */
+  right: 30px;
+  width: 320px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  z-index: 2001;
+  animation: slideUp 0.3s ease-out; /* Smooth entry */
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.chat-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.chat-form h3 {
+  font-family: "McLaren", cursive;
+  color: #333;
+  font-size: 1.2rem;
+}
+
+.chat-form input, .chat-form textarea {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-family: "Montserrat", sans-serif;
+  outline: none;
+}
+
+.chat-form input:focus {
+  border-color: #f5ba13; /* Use your signature yellow */
+}
+
+.send-btn {
+  background-color: #f5ba13;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+ ;
+}
+
+.send-btn:hover {
+  background-color: #3d3434;
+}
+
+
+/* PORTFOLIO SECTION STYLES HERE */
+
+#portfolio {
+  background-color: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 120px 5%;
+}
+
+.portfolio-grid {
+  display: grid;
+  /* Automatically adjusts based on screen size */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.project-card {
+  background: #fff;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  border-bottom: 4px solid #f5ba13; /* Signature yellow accent */
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+}
+
+.project-date {
+  font-size: 0.8rem;
+  color: #f5ba13;
+  font-weight: bold;
+}
+
+.tech-tag {
+  background: #fdf6e3;
+  color: #f5ba13;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  margin-right: 5px;
+}
+
+/*CONTACT MENU STYLES HERE */
+.contact-menu-wrapper {
+  position: relative; /* Anchor for the list */
+}
+
+.social-dropdown {
+  position: absolute;
+  top: 120%; /* Sits right below the button */
+  right: 0;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  list-style: none;
+  padding: 10px 0;
+  min-width: 160px;
+  z-index: 1001;
+  border: 1px solid #eee;
+}
+
+.social-dropdown li a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #333;
+  font-size: 0.9rem;
+  
+}
+/* Ensure the logo images are small and uniform */
+.dropdown-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+  object-fit: contain; /* Prevents stretching */
+}
+
+.social-dropdown li a:hover {
+  background-color: #fdf6e3;
+  color: #f5ba13; /* Matches your profile theme */
+}
+
+/* FOOTER STYLES HERE */
+/* 5. Footer (Appears only at the end) */
+footer {
+  text-align: center;
+  padding: 40px 0;
+  width: 100%;
+  background-color: #eee;
+  border-top: 1px solid #ddd;
+}
+
+footer p {
+  color: #888;
+  font-size: 0.9rem;
+}
+
+/* 6. Responsive Design */
+@media (max-width: 768px) {
+  header {
+    padding: 0 20px;
+  }
+
+  .nav-links {
+    gap: 15px;
+  }
+
+  .contact-btn {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+}
