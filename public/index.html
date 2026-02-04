@@ -4,6 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Sampson's professional portfolio and skills" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <title>Sampson's Portfolio</title>
@@ -12,6 +14,16 @@
      <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <script>
+  function updateViewportVars() {
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+  }
+
+  window.addEventListener('resize', updateViewportVars);
+  updateViewportVars();
+</script>
+
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
   </body>
