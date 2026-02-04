@@ -52,14 +52,6 @@ header {
   flex-wrap: wrap; /* allow wrapping for small screens */
 }
 
-/* Hamburger menu icon */
-.menu-icon {
-  display: none; /* hidden on desktop */
-  font-size: 1.8rem;
-  color: white;
-  cursor: pointer;
-}
-
 header h2 {
   color: #ffffff;
   font-family: "McLaren", cursive;
@@ -335,6 +327,7 @@ header h2 {
 
 /* 4. Hover Effects */
 .floating-chat:hover .chat-label {
+  justify-content: right;
   opacity: 1;
   visibility: visible;
   transform: translateX(0); /* Slides into view */
@@ -442,7 +435,7 @@ header h2 {
   font-weight: bold;
 }
 
-.tech-tag {
+ .tech-tag {
   background: #fdf6e3;
   color: #f5ba13;
   padding: 4px 10px;
@@ -450,7 +443,7 @@ header h2 {
   font-size: 0.75rem;
   margin-right: 5px;
   font-size: clamp(0.6rem, 0.9vw, 0.75rem);
-}
+} 
 
 /*CONTACT MENU STYLES HERE */
 .contact-menu-wrapper {
@@ -459,7 +452,7 @@ header h2 {
 
 .social-dropdown {
   position: absolute;
-  top: 120%; /* Sits right below the button */
+  top: 120%; 
   right: 0;
   background: white;
   border-radius: 12px;
