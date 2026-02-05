@@ -24,7 +24,6 @@ function Skills() {
     {
       title: "Design & Tools",
       skills: [
-        
         { name: "Git & GitHub", icon: "📦" },
         { name: "Figma", icon: "📐" },
       ]
